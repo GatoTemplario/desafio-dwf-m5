@@ -1,13 +1,12 @@
 {
   "name": "Capitulo-Desafio-final",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "scripts": {
     "dev": "parcel serve ./src/index.html",
-    "build": "parcel build ./src/index.html",
-    "deploy": "gh-pages"
-
+    "build": "parcel build ./src/index.html --dist-dir build --public-url /desafio-dwf-m5",
+    "deploy": "gh-pages -d ./build",
+    "build-n-deploy": "yarn build && yarn deploy"
   },
   "dependencies": {
     "gh-pages": "^4.0.0",

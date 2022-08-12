@@ -11,6 +11,8 @@ export function initResult({goTo}){
             return imgWinningStar
         }else if (state.whoWins() == currentState.outcomes[2]){
             return imgLosingStar
+        }else{
+            return null
         }
     }
     

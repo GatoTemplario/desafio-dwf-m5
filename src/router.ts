@@ -3,10 +3,11 @@ import { initStart } from "./pages/start/start";
 import { initGame } from "./pages/game/game";
 import { initResult } from "./pages/result/result";
 
-const BASE_PATH = "/Capitulo8-Desafio-final"
+const BASE_PATH = "/desafio-dwf-m5"
+const gatoTemplario = "gatotemplario.github.io"
 
 function isGitHubPages(){
-    return location.host.includes("github.io")
+    return location.host.includes(gatoTemplario)
 }
 
 export function initRouter(container : Element){
@@ -45,7 +46,8 @@ export function initRouter(container : Element){
             }
         }
     }
-    if(location.pathname == "/"){
+    
+    if(location.pathname == "/" || location.pathname == BASE_PATH + "/"){
         goTo("/welcome")
     }else{
         handleRoute(location.pathname)
