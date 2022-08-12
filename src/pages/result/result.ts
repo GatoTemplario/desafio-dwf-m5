@@ -12,7 +12,7 @@ export function initResult({goTo}){
         }else if (state.whoWins() == currentState.outcomes[2]){
             return imgLosingStar
         }else{
-            return null
+            return ""
         }
     }
     
