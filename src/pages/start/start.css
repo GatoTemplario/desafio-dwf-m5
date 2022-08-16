@@ -13,7 +13,11 @@
     margin-top: 13%;
     max-width: 480px;
 }
+.start__container-button{
+    height: 150px;
+}
 .start__button{
+    height: 100%;
     font-size: 40px;
     margin-top: 25px;
 }

@@ -10,7 +10,9 @@ export function initWelcome({goTo}){
         </h1>
         <h1 class="welcome__title">Tijera</h1>
     </div>
-    <button-el class="welcome__button">Empezar</button-el>
+    <div class="welcome__container-button">
+        <button-el class="welcome__button">Empezar</button-el>
+    </div>
     <div class="welcome__container-options">
         <ppt-el class="welcome__option" checked=true variant="Tijera"></ppt-el>
         <ppt-el class="welcome__option" checked=true variant="Papel"></ppt-el>

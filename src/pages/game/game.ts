@@ -15,7 +15,7 @@ export function initGame({goTo}){
 
     const htmlElements = divEl.getElementsByTagName("ppt-el")
     const setDeOptions = Array.from(htmlElements)
-    var choosenID = 0
+    var choosenID = 3
     
     for (let i = 0; i < setDeOptions.length; i++) {
         const element = setDeOptions[i];
@@ -37,12 +37,17 @@ export function initGame({goTo}){
     function setGame(){
         const optionChoosen = document.getElementById(choosenID.toString())
         const myPlay = optionChoosen?.getAttribute("variant") as Jugada
-
+        
         state.setGame(myPlay)
     }
     setTimeout( () => {
-        setGame()
-        goTo("/result")
+        if (choosenID !== 3){
+            setGame()
+            goTo("/result")
+        }else{
+            goTo("/start")
+        }
+
     }, 3500)
 
     return divEl;

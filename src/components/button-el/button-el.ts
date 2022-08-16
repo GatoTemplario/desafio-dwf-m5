@@ -20,10 +20,11 @@ export function initButton(){
             `
             style.innerHTML= `
                 .container{
+                    height: 100%;
                 }
                 .button{
                     width: 322px;
-                    height: 87px;
+                    height: 100%;
                     background-color: #006CFC;
                     border: solid;
                     border-color: #001997;
@@ -35,7 +36,6 @@ export function initButton(){
                 @media(min-width: 769px){
                     .button{
                         width: 422px;
-                        height: 95px;
                     }
                 }
             `

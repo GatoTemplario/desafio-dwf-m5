@@ -14,25 +14,40 @@ export const state = {
       mapa: [
         { nombre: "Piedra", gana: "Tijera" },
         { nombre: "Papel" , gana: "Piedra" },
-        { nombre: "Tijera", gana: "Papel" }
+        { nombre: "Tijera", gana: "Papel"  }
       ],
       outcomes: ["Ganaste", "Empate", "Perdiste"],
     },
-  listeners: [],
+    listeners: [],
+
+  initState(){
+    if(localStorage.getItem("saved-state")){
+      console.log("state encontrado");
+      const localData = localStorage.getItem("saved-state") as any;
+      
+      this.setState(JSON.parse(localData))
+    }else{
+      console.log("utilizo state inicial");
+      this.setState(this.getState())
+    }
+  },
   getState() {
     return this.data;
   },
   setState(newState) {
     this.data = newState;
+
     for (const cb of this.listeners) {
       cb(newState);
     }
+    localStorage.setItem("saved-state", JSON.stringify(newState))
   },
   subscribe(callback: (any) => { any }) {
     this.listeners.push(callback);
   },
   getRandomPlay(){
     const randomNumer = Math.floor(Math.random()*3)
+    
     return this.data.mapa[randomNumer].nombre
   },
   whoWins(){

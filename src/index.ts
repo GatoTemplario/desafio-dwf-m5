@@ -3,12 +3,14 @@ import { initPPT } from "./components/PiedraPapelTijera/ppt-el"
 import { initTimer}  from "./components/timer-el/timer"
 import { initCircle } from "./components/timer-el/circle"
 import { initButton } from "./components/button-el/button-el"
+import { state } from "./state"
 
 (()=>{
     const fondo = require("url:./images/fondo.png")
     const div   = document.querySelector(".root") as HTMLElement
     const body  = document.querySelector("body") as HTMLElement
 
+    state.initState()
     initPPT()
     initRouter(div)
     initTimer()

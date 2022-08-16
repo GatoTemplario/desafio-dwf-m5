@@ -3,7 +3,7 @@ const imgWinningStar  = require("url:../../images/winning-star.png");
 const imgLosingStar   = require("url:../../images/losing-star.png");
 
 export function initResult({goTo}){
-    const divEl = document.createElement("div")
+    const divEl = document.createElement("div") as HTMLElement
     const currentState = state.getState()
     
     function renderStar(){
@@ -34,12 +34,21 @@ export function initResult({goTo}){
                 <h3 class="result__text">Vos: ${currentState.history.jugador}</h3>
                 <h3 class="result__text">Máquina: ${currentState.history.computadora}</h3>
             </div>
-            <button-el class="result__button">Volver a jugar</button-el>
+            <button-el class="result__button--jugar">Volver a jugar</button-el>
+            <button-el class="result__button--reiniciar">Reiniciar score</button-el>
         </div>
     `
-
-    const button = divEl.querySelector(".result__button");
-    button?.addEventListener("click", () => {goTo("/game")});
+    const buttonAgain = divEl.querySelector(".result__button--jugar");
+    buttonAgain?.addEventListener("click", () => {goTo("/game")});
+    
+    const buttonRestart = divEl.querySelector(".result__button--reiniciar");
+    buttonRestart?.addEventListener("click", ()=> {
+        currentState.history.jugador = 0
+        currentState.history.computadora = 0
+        state.setState(currentState)
+        
+        goTo("/start")
+    })
     
     function renderColor(){
         if(state.whoWins() == currentState.outcomes[0]){

@@ -36,7 +36,7 @@
 }
 .result__score-star{
     margin: auto;
-    height: 210%;
+    height: 190%;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -72,6 +72,9 @@
 .result__text{
     margin: 0px;
 }
-.result__button{
-    margin-bottom: 15px;
+.result__button--jugar{
+    margin-bottom: 2%;
+}
+.result__button--reiniciar{
+    margin-bottom: 2%;
 }
